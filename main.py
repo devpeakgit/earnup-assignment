@@ -55,6 +55,7 @@ def is_valid_set(cards):
 
 # Big O(n3) - terrible !
 # Assumes setsize of s3
+# TODO look at using internal combinations lib to improve this treacle nested looping
 def generate_all_sets(cards: List[Card]) -> Tuple[List[Card], List[Card]]:
 
     valid_sets = []
