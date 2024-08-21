@@ -1,6 +1,7 @@
 
 from math import comb
 from main import Card, generate_all_sets
+import pytest
 
 def test_generate_sets():
            
@@ -28,9 +29,8 @@ def test_generate_sets():
     assert(num_combinations) == 10
    
     
-    valid, invalid = generate_all_sets(test_data)
+    valid = generate_all_sets(test_data)
     assert len(valid) == len(expected_valid)
-    assert len(invalid) == 8
     assert expected_valid == valid
     
 
@@ -46,20 +46,12 @@ def test_no_valid_sets():
     expected_valid = [
     ]
     
-    expected_invalid = [
-        [
-            Card(id=1,shape=3, color=3, shade=3, number=3),
-            Card(id=2,shape=3, color=3, shade=3, number=3),
-            Card(id=3,shape=3, color=3, shade=1, number=1),
-        ]  
-    ]
     
-    valid, invalid  = generate_all_sets(test_data)
+    
+    valid  = generate_all_sets(test_data)
     assert valid == expected_valid
     assert valid == []
-    
-    assert len(invalid) == len(expected_invalid)
-    assert invalid == expected_invalid
+
     
 def test_single_card():
     # No valid or invalid sets
@@ -71,12 +63,10 @@ def test_single_card():
     expected_valid = [
     ]
     
-    expected_invalid = [
-    ]
-    
-    valid, invalid  = generate_all_sets(test_data)
+   
+    valid  = generate_all_sets(test_data)
     assert valid == expected_valid
-    assert invalid == expected_invalid
+   
     
         
     

@@ -27,11 +27,10 @@ async def index():
 @app.post('/generate_sets')
 async def generate_sets(cards: List[Card]):
 
-    valid, invalid = generate_all_sets(cards)
+    valid = generate_all_sets(cards)
 
     return {
         "valid_sets": valid,
-        "invalid_sets": invalid
     }
 
 
@@ -52,7 +51,7 @@ def is_valid_set(cards):
     return True
 
 
-def generate_all_sets(cards: List[Card]) -> Tuple[List[Card], List[Card]]:
+def generate_all_sets(cards: List[Card]) -> Tuple[List[Card]]:
     """
     Generates all possible sets of three cards and ids them as valid or invalid.
 
@@ -64,14 +63,12 @@ def generate_all_sets(cards: List[Card]) -> Tuple[List[Card], List[Card]]:
         cards (List[Card]): A list of `Card` objects from which to generate sets.
 
     Returns:
-        Tuple[List[List[Card]], List[List[Card]]]: 
-            A tuple containing two lists:
+        Tuple[List[List[Card]]: 
+            A tuple containing a list:
             - A list of valid sets, where each set is represented by a list of three `Card` objects.
-            - A list of invalid sets, where each set is represented by a list of three `Card` objects.    
     """
 
     valid_sets = []
-    invalid_sets = []
     n = len(cards)
     # Go thru all the cards
     for i in range(n):
@@ -82,6 +79,4 @@ def generate_all_sets(cards: List[Card]) -> Tuple[List[Card], List[Card]]:
                 combo = [cards[i], cards[j], cards[k]]
                 if is_valid_set(combo):
                     valid_sets.append(combo)
-                else:
-                    invalid_sets.append(combo)
-    return valid_sets, invalid_sets
+    return valid_sets
