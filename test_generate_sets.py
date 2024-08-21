@@ -1,5 +1,5 @@
 
-from main import Card
+from main import Card, generate_all_sets
 
 def test_generate_sets():
     
