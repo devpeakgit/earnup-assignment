@@ -1,4 +1,11 @@
-# earnup-assignment
+![Logo](https://earnup.com/wp-content/uploads/2023/07/EarnUp-logo.png)
+Hi Earnup Engineering 👋,
+
+I hope this reaches you well and you can get this running ok. I'd do more but the time limit is coming close.
+I've already some thoughts of how this an be improved. Any questions or issues please reach out.
+
+All the best,
+Will
 
 
 # To run api server
